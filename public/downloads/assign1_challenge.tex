@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=C, tabsize=4, frame=single}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\begin{center}
+\section*{Assignment 1 -- Challenge problems}
+\end{center}
+\subsection*{Challenge problem 1 -- MultiplierKarel}
+Write a program which uses Karel to multiply. The starting position has two
+piles of beepers next to each other. The goal is to produce a pile of beepers
+whose size is the product of the original two piles. The specifications are as
+follows:
+\begin{itemize}
+  \item Karel begins in the lower-left corner, facing east. There are two piles
+    of beepers, one in the lower-left corner (the same as Karel's starting
+    position), and one on the space immediately to the east, directly in front
+    of Karel. The provided world {\tt Calculator.w} is an example of such a
+    world.
+  \item The objective is to produce a pile of beepers on any square other than
+    the initial two which contains a number of beepers equal to the product of
+    the sizes of the initial two piles.
+  \item At termination, the sizes of the initial two piles should be the same as
+    at the start. It is okay for Karel to change the sizes of these piles while
+    the program runs, but Karel must restore these piles to their original sizes
+    before the program terminates.
+  \item Also at termination, there should be no beepers present in the world
+    other than those in the three piles: the two initial piles, and a third pile
+    representing the product.
+  \item You may assume that the size of the world is at least $3\times 3$, and
+    that there are no beepers initially present in the world other than the ones
+    in the two starting piles.
+\end{itemize}
+\subsection*{Challenge Problem 2 -- ExplorerKarel}
+Write a program to fully explore a world. Starting anywhere in a world of
+unknown shape, Karel should place a beeper at every space in the world. The
+specifications are as follows:
+\begin{itemize}
+  \item The world may be any shape or size, and Karel may start at any
+    position. There may be walls in any location.
+  \item At termination, there should be a beeper at every location which is
+    accessible from Karel's starting point.
+  \item You may assume that the world does not initially contain any beepers.
+  \item You can try using the provided world {\tt Maze.w} to test your program.
+\end{itemize}
+\end{document}

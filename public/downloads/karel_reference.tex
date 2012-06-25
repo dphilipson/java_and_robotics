@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=C, tabsize=4, frame=single}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\section*{Karel Reference}
+Movement commands
+\begin{center}
+  \begin{tabular}{|l|p{20em}|}
+    \hline
+    \texttt{move()} & Moves Karel forward one space. Will fail if Karel is in
+    front of a wall! \\\hline
+    \texttt{turnLeft()} & Rotates Karel 90 degrees to the left. \\
+    \texttt{turnRight()} & Rotates Karel 90 degrees to the right. \\
+    \texttt{turnAround()} & Rotates Karel 180 degrees. \\\hline
+  \end{tabular}
+\end{center}
+Beeper commands
+\begin{center}
+  \begin{tabular}{|l|p{20em}|}
+    \hline
+    \texttt{putBeeper()} & Places a beeper on the space where Karel is currently
+    located. \\
+    \texttt{pickBeeper()} & Removes a beeper from the space where Karel is
+    currently located. Will fail if that space has no beepers. \\\hline
+  \end{tabular}
+\end{center}
+Boolean methods
+\begin{center}
+  \begin{tabular}{|l|p{20em}|}
+    \hline
+    \texttt{frontIsClear()} & True if there is no wall in front of Karel, so he
+    may safely move forward using {\tt move()}. \\
+    \texttt{leftIsClear()} & True if there is no wall to Karel's left. \\
+    \texttt{rightIsClear()} & True if there is no wall to Karel's right. \\
+    \texttt{backIsClear()} & True if there is no wall behind Karel. \\\hline
+    \texttt{beepersPresent()} & True if there is at least one beeper on the
+    space where Karel is currently located. \\\hline
+  \end{tabular}
+\end{center}
+Each boolean method has a corresponding negative method, which is true exactly
+when the other is false. The corresponding methods are
+\begin{center}
+  \begin{tabular}{|l|l|}
+    \hline
+    \texttt{frontIsClear()} & \texttt{frontIsBlocked()} \\
+    \texttt{leftIsClear()} & \texttt{leftIsBlocked()} \\
+    \texttt{rightIsClear()} & \texttt{rightIsClear()} \\
+    \texttt{backIsClear()} & \texttt{backIsBlocked()} \\\hline
+    \texttt{beepersPresent()} & \texttt{noBeepersPresent()} \\\hline
+  \end{tabular}
+\end{center}
+\end{document}
