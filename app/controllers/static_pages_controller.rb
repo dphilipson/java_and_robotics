@@ -9,6 +9,9 @@ class StaticPagesController < ApplicationController
   end
 
   def assignments
+    if Random.rand(100) == 0
+      redirect_to 'http://www.youtube.com/watch?v=oHg5SJYRHA0'
+    end
   end
 
   def resources
