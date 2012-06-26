@@ -1,0 +1,185 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=C, tabsize=4, frame=single}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\begin{center}
+\section*{Assignment 2 -- Working with Variables}
+\end{center}
+\subsection*{Problem 1 -- A simple greeting}
+This problem will give you a chance to get your hands dirty with a
+ConsoleProgram. Write a program which asks the user for his or her name. The
+program should reply with a greeting to that user. In addition, if the user has
+your own name, you should reply with a special greeting. A sample run of the
+program might look like this, where the bold text has been entered by the user.
+\begin{quote}
+  Hello! What is your name? \textbf{Thor}\\
+  Hi Thor, it's good to meet you.
+\end{quote}
+Another run might appear
+\begin{quote}
+  Hello! What is your name? \textbf{David}\\
+  Weird, that's my name too.
+\end{quote}
+You do not need to copy the wording exactly. Feel free to write your own
+greetings and responses, as long as it meets the requirements in the above
+paragraph.
+\subsection*{Problem 2 -- Computing variance}
+In lecture, we saw how to write a program which computes the average of a list
+of numbers input by the user. In this problem, we will modify that program to
+instead compute the variance.
+
+The \textbf{variance} of a list of numbers is a measure of how far those numbers
+are from the mean, or average. A high variance indicates that the numbers are
+widely spread out, while a low variance indicates that the numbers are all very
+close to each other. In particular, a variance of $0$ occurs exactly when all of
+the numbers are exactly the same, The variance is never negative.
+
+For a list of numbers $x_1, x_2, \ldots, x_n$, the variance may be
+computed by the formula
+\[
+\frac{x_1^2 + x_2^2 + \cdots + x_n^2}{n} - \paren{\frac{x_1 + x_2 + \cdots
++ x_n}{n}}^2
+\]
+For example, the variance of the numbers $10, 11, 12$ is computed as
+\[
+\frac{10^2 + 11^2 + 12^2}{3} - \paren{\frac{10 + 11 + 12}{3}}^2
+\]
+which turns out to be $2/3$.
+
+Another way you may find helpful to think of this computation: the first term is
+the average of the squares of the inputs. The second term is the square of the
+average of the inputs.
+
+You should write a program which accepts numeric inputs from the user until the
+user enters $-1$, at which point you should print out the variance of all the
+numbers entered before the $-1$. A sample run might appear as follows:
+\begin{quote}
+  Enter a number (or enter -1 to finish): \textbf{4} \\
+  Enter a number (or enter -1 to finish): \textbf{4} \\
+  Enter a number (or enter -1 to finish): \textbf{5} \\
+  Enter a number (or enter -1 to finish): \textbf{6} \\
+  Enter a number (or enter -1 to finish): \textbf{-1} \\
+  The variance is 0.6875.
+\end{quote}
+As a side note, the square root of the variance is known as \textbf{standard
+deviation}, and is commonly used when discussing statistics (such as test
+scores) to indicate how widely spread the data is.
+\subsection*{Challenge Problem -- Reverse guessing game}
+In class, we wrote a program which challenged the user to try to guess its
+hidden number, and at each step the program told the user whether the guess was
+high or low. In this problem, we write a program to play the same game, but from
+the other side. The user thinks of a random number, and the program makes
+guesses. After each guess, the user tells the program whether the guess was
+high, low, or correct. A sample run might appear as follows:
+\begin{quote}
+  Think of a number between 1 and 100.
+  I guess 50. Is that high, low, or correct? \textbf{high} \\
+  I guess 25. Is that high, low, or correct? \textbf{high} \\
+  I guess 12. Is that high, low, or correct? \textbf{low} \\
+  I guess 18. Is that high, low, or correct? \textbf{high} \\
+  I guess 15. Is that high, low, or correct? \textbf{correct} \\
+  Good game!
+\end{quote}
+The program's strategy is to keep track of a range in which it knows the number
+is in, and to always guess at the middle of that range. For example, in the
+above run it followed the following reasoning:
+\begin{itemize}
+  \item The initial range is 1 to 100. The middle of this range is $(1 + 100) /
+    2$, which I'll round down to $50$.
+  \item $50$ was too high. That means I now know the number is in the range 1 to
+    49. The middle of this range is $(1 + 49) / 2$, so I'll guess $25$.
+  \item $25$ was too high. That means I now know the number is in the range 1 to
+    24. The middle of this range is $(1 + 24) / 2$, which I'll round down to
+    $12$.
+  \item $12$ was too low. This means I now know the number is in the range 13 to
+    24. The middle of this range is $(13 + 24) / 2$, which I'll round down to
+    $18$.
+  \item $18$ was too high. So the number must be in the range 13 to 18. The
+    middle of this range is $(13 + 18) / 2$, which I'll round down to $15$.
+\end{itemize}
+It's a very good  accomplishment to get a basic version of the program running.
+If you can do that, you can try adding the following features:
+\begin{itemize}
+  \item If the user enters something other than ``high'', ``low'', or
+    ``correct'', prompt them again until they enter one of the acceptable
+    values.
+  \item If the user has given input which cannot describe any actual number (for
+    example, the user never says that any guess is correct, leading to a range
+    from 25 to 24), then the program should let the user know that they are a
+    dirty, dirty cheater.
+\end{itemize}
+\end{document}
