@@ -97,47 +97,50 @@ Another run might appear
 You do not need to copy the wording exactly. Feel free to write your own
 greetings and responses, as long as it meets the requirements in the above
 paragraph.
-\subsection*{Problem 2 -- Computing variance}
-In lecture, we saw how to write a program which computes the average of a list
-of numbers input by the user. In this problem, we will modify that program to
-instead compute the variance.
-
-The \textbf{variance} of a list of numbers is a measure of how far those numbers
-are from the mean, or average. A high variance indicates that the numbers are
-widely spread out, while a low variance indicates that the numbers are all very
-close to each other. In particular, a variance of $0$ occurs exactly when all of
-the numbers are exactly the same, The variance is never negative.
-
-For a list of numbers $x_1, x_2, \ldots, x_n$, the variance may be
-computed by the formula
-\[
-\frac{x_1^2 + x_2^2 + \cdots + x_n^2}{n} - \paren{\frac{x_1 + x_2 + \cdots
-+ x_n}{n}}^2
-\]
-For example, the variance of the numbers $10, 11, 12$ is computed as
-\[
-\frac{10^2 + 11^2 + 12^2}{3} - \paren{\frac{10 + 11 + 12}{3}}^2
-\]
-which turns out to be $2/3$.
-
-Another way you may find helpful to think of this computation: the first term is
-the average of the squares of the inputs. The second term is the square of the
-average of the inputs.
-
-You should write a program which accepts numeric inputs from the user until the
-user enters $-1$, at which point you should print out the variance of all the
-numbers entered before the $-1$. A sample run might appear as follows:
-\begin{quote}
+\subsection*{Problem 2 -- Computing mean and variance}
+\begin{enumerate}[(a)]
+  \item Write a program which computes the average of a list of numbers input by
+    the user. The average, or \textbf{mean} of a list of numbers is the sum of
+    the numbers divided by the number of numbers. You should ask the user to
+    input numbers in sequence until they enter $-1$, at which point you should
+    report the average of all the numbers entered prior to the $-1$. A sample
+    run of the program might appear: \begin{quote}
   Enter a number (or enter -1 to finish): \textbf{4} \\
   Enter a number (or enter -1 to finish): \textbf{4} \\
   Enter a number (or enter -1 to finish): \textbf{5} \\
   Enter a number (or enter -1 to finish): \textbf{6} \\
   Enter a number (or enter -1 to finish): \textbf{-1} \\
+  The average is 4.75.
+\end{quote}
+  \item The \textbf{variance} of a list of numbers is a measure of how far those
+    numbers are from their mean. A high variance indicates that the numbers are
+    widely spread out, while a low variance indicates that the numbers are all
+    very close to each other. In particular, a variance of $0$ occurs exactly
+    when all of the numbers are exactly the same, The variance is never
+    negative.
+
+For a list of numbers $x_1, x_2, \ldots, x_n$, the variance may be computed by
+the formula \[ \frac{x_1^2 + x_2^2 + \cdots + x_n^2}{n} - \paren{\frac{x_1 + x_2
++ \cdots + x_n}{n}}^2 \] For example, the variance of the numbers $10, 11, 12$
+is computed as \[ \frac{10^2 + 11^2 + 12^2}{3} - \paren{\frac{10 + 11 +
+12}{3}}^2 \] which turns out to be $2/3$.
+
+Another way you may find helpful to think of this computation: the first term is
+the average of the squares of the inputs. The second term is the square of the
+average of the inputs.
+
+You should modify the above program program to also print out the variance of
+all the numbers entered before the $-1$. A sample run might appear the same as
+above, with the additional line at the end,
+\begin{quote}
   The variance is 0.6875.
 \end{quote}
 As a side note, the square root of the variance is known as \textbf{standard
 deviation}, and is commonly used when discussing statistics (such as test
-scores) to indicate how widely spread the data is.
+scores) to indicate how widely spread the data is. If you are interested in also
+computing standard deviation, you should look into the method {\tt
+Math.sqrt()}, which takes a single double as its argument and returns a double.
+\end{enumerate}
 \subsection*{Challenge Problem -- Reverse guessing game}
 In class, we wrote a program which challenged the user to try to guess its
 hidden number, and at each step the program told the user whether the guess was
