@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=C, tabsize=4, frame=single}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\begin{center}
+\section*{LeJOS basic commands reference}
+\end{center}
+For printing on the LCD screen:
+\begin{center}
+  \begin{tabular}{|l|p{20em}|}
+    \hline
+    {\tt LCD.drawString(String str, int x, int y)} & Displays the provided
+    string on the LCD screen, starting at position $(x, y)$. \\\hline
+    {\tt LCD.drawInt(int n, int x, int y)} & Displays the integer {\tt n} on the
+    LCD screen, starting at position $(x, y)$. \\\hline
+    {\tt LCD.clear()} & Clears the LCD screen, removing whatever has been
+    printed. \\\hline
+  \end{tabular}
+\end{center}
+Methos for working with the buttons on the brick. Note that {\tt
+Button.waitForPress()} is useful as the last command of a program, as otherwise
+the program will terminate immediately and clear anything which was displayed on
+the LCD.
+\begin{center}
+  \begin{tabular}{|l|p{20em}|}
+    \hline
+    {\tt Button.waitForPress()} & Waits for any button on the brick to be
+    pressed before continuing with the program. Returns an {\tt int} which
+    represents which button was pressed (ask for details). \\\hline
+    {\tt Button.readButtons()} & Returns an {\tt int} which is $0$ if no buttons
+    are currently pressed down, and greater than $0$ if any buttons are
+    currently pressed down. It is possible to use this value to determine which
+    buttons in particular are currently pressed, ask for details. \\\hline
+  \end{tabular}
+\end{center}
+You can access the three motors via the constants {\tt Motor.A}, {\tt Motor.B},
+and {\tt Motor.C}, which are instances of the class {\tt NXTRegulatedMotor}.
+You can tell a motor to do things using the following methods, so for example to
+tell motor A to start running forward, you would write {\tt
+Motor.A.forward()}.
+\begin{center}
+  \begin{tabular}{|l|p{20em}|}
+    \hline
+    {\tt forward()} & Start the motor rotating forward. \\\hline
+    {\tt backward()} & Start the motor rotation backward. \\\hline
+    {\tt stop()} & Quickly stop the motor rotating. \\\hline
+    {\tt getTachoCount()} & Returns the motor angle in degrees. \\\hline
+    {\tt setSpeed(int speed)} & Sets the speed in degrees per second, up to a
+    max of around 1000. \\\hline
+    {\tt rotate(int angle)} & Rotates the motor the specified angle in degrees.
+    \\\hline
+    {\tt rotateTo(int angle)} & Rotates the motor until it's tachometer count
+    (as returned by {\tt getTachoCount()}) equals the specified angle in degree.
+    \\\hline
+    {\tt rotate(int angle, true)} & The same as the other {\tt rotate()}, but
+    returns immediately, i.e.\ the next command in the program runs immediately
+    rather than waiting for the rotation to complete. \\\hline
+    {\tt rotateTo(int angle, true)} & The same as the other {\tt rotateTo}, but
+    returns immediately. \\\hline
+    {\tt isMoving()} & Returns {\tt true} if the motor is currently moving.
+    \\\hline
+  \end{tabular}
+\end{center}
+There are some other, more obscure motor methods. These probably won't be as
+useful, but are listed here for reference.
+\begin{center}
+  \begin{tabular}{|l|p{20em}|}
+    \hline
+    {\tt resetTachoCount()} & Resets the tachometer count, as returned by {\tt
+    getTachoCount}, to zero. \\\hline
+    {\tt setAcceleration(int accel)} & Sets the rate at which the motor changes
+    speed, in degrees per second per second. Try using a small value like 200 to
+    have your robot smoothly accelerate or decelerate. \\\hline
+    {\tt getSpeed()} & Returns the speed in degrees per second, as set by {\tt
+    setSpeed()}. \\\hline
+    {\tt getActualSpeed()} & Returns the speed that the motor is actually
+    currently moving, in degrees per second. \\\hline
+    {\tt getAcceleration()} & Returns the acceleration in degrees per second per
+    second, as set by {\tt setAcceleration()}. \\\hline
+    {\tt getLimitAngle()} & Gets the angle to which the motor is currently
+    rotating, after a call to {\tt rotate()} or {\tt rotateTo()}. \\\hline
+    {\tt isRotating()} & Returns {\tt true} if the motor is currently moving due
+    to a {\tt rotate()} or {\tt rotateTo()} command. Compare to {\tt
+    isMoving()}, which returns {\tt true} if the motor is moving for any reason.
+    \\\hline
+    {\tt flt()} & Stop the motor gradually. Like {\tt stop()}, but allows the
+    motor to stop on its own rather than using power to stop it. \\\hline
+  \end{tabular}
+\end{center}
+
+\end{document}
