@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=Java, tabsize=4, frame=single}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\begin{center}
+\section*{How to use LeJOS}
+\end{center}
+Unfortunately, the Eclipse plugin we have been using up until now wasn't
+designed to work with LeJOS, so creating and running projects will work a little
+differently.\\
+\subsection*{Creating a LeJOS project}
+\begin{itemize}
+  \item In Eclipse, on the menu at the top of the window select File $\to$ New
+    $\to$ Project.
+  \item On the menu that appears, select LeJOS $\to$ LeJOS NXT Project. Click
+    Next.
+  \item On the next screen, enter any name you want, then click Finish.
+  \item Select the project you just created in the left-hand pane (it should
+    have a small LeJOS logo over the folder icon, to indicate that it is a LeJOS
+    project).
+  \item In the File menu at the top of the screen, or the one that appears by
+    right-clicking the project, select New $\to$ Class.
+  \item Enter a name for the class, describing the type of program you're
+    writing.
+  \item The class appears in your editor. Inside the class, create a method
+    which appears
+    \begin{lstlisting}
+public static void main(String[] args) {
+    // Your code goes here.
+}\end{lstlisting}
+\end{itemize}
+You're ready to write your program! If you want to create more programs in the
+same project, you can create more classes by following the last three steps
+again.
+\subsection*{Running a LeJOS program}
+To run a LeJOS program that you have just written, follow these steps:
+\begin{itemize}
+  \item Connect your NXT brick to your computer via a USB cable and turn on the
+    brick by pressing the Enter button (the big orange one).
+  \item Right-click your program, and on the menu that appears select Run As
+    $\to$ LeJOS NXT Program.
+\end{itemize}
+Depending on the settings in your editor, this will upload your program and
+immediately run it, or simply upload your program. In any case, once the program
+is uploaded to your brick, you can run it by selecting Files on the NXT menu,
+then selecting the program you want to run, then selecting Execute Program.
+\end{document}
