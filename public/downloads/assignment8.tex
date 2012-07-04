@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=C, tabsize=4, frame=single}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\begin{center}
+\section*{Assignment 8 -- Sensors}
+\end{center}
+\subsection*{Problem 1}
+Write a program for your robot which uses a touch sensor (or multiple touch
+sensors) to correct its path when encountering obstacles. In particular, your
+robot should do the following:
+\begin{itemize}
+  \item Begin by traveling forward.
+  \item The touch sensor(s) should be placed so that it is pressed when the
+    robot runs into a wall or other obstacle. When this happens, the robot
+    should back up a short distance, then turn ninety degrees to the left.
+  \item The robot should now start traveling forward again until it hits another
+    wall, and so on indefinitely.
+\end{itemize}
+Don't forget that you can always kill a running program by pressing the enter
+and escape buttons (the orange button and the one below it) at the same time.
+\subsection*{Problem 2}
+Write a program for your robot that uses a sound sensor to react to loud noises.
+Your robot should do the following:
+\begin{itemize}
+  \item Begin by traveling forward.
+  \item Whenever the robot hears a loud sound, such as you shouting at it, it
+    should stop moving, then turn ninety degrees to the right, then start
+    moving again.
+\end{itemize}
+Part of this problem is figuring out what exactly should count as a ``loud
+noise.'' Ideally, the robot should be fairly sensitive to sounds, but not so
+sensitive that the noise of its own motors or ambient sounds causes it to make
+durns.
+\subsection*{Challenge problem}
+Combine the two behaviors from the previous parts into a single program. That
+is, the robot should move forward indefinitely, but whenever it encounters a
+wall it should turn left, and whenever it hears a loud noise it turns right.
+
+Now design an obstacle course by putting up barriers and choosing a start and
+finish location. To complete the course, you must navigate the robot through the
+course by making noises as necessary to tell it to turn.
+
+Let other groups try out your obstacle course by controlling your robot with
+sound. You can have other groups compete to finish your course in the shortest
+time.
+
+\end{document}
