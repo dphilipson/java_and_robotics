@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=C, tabsize=4, frame=single}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\begin{center}
+\section*{Assignment 9 -- Creating classes}
+\end{center}
+\subsubsection*{Problem 1}
+In the file {\tt Circle.java}, fill in the code to define a class {\tt Circle}
+which represents a circle of a given radius and has methods which provide
+information about its current radius, area, and circumference. In particular, it
+has the following constructor and methods:
+\begin{itemize}
+  \item Its constructor takes a single double, representing the radius.
+  \item A method {\tt getRadius()}, which takes no arguments and returns the
+    radius as a double.
+  \item A method {\tt getCircumference()}, which takes no arguments and returns
+    the circumference as a double (the circumference of a circle is $2\pi r$,
+    where $r$ is the radius).
+  \item A method {\tt getArea()}, which takes no arguments and returns the area
+    as a double (the area of a circle is $\pi r^2$, where $r$ is the radius).
+  \item A method {\tt equals()}, which takes another {\tt Circle} as its
+    argument and returns true if the other circle has the same radius.
+\end{itemize}
+The class should have no public instance variables. In particular, there is no
+way to change the radius of the circle after the circle has been
+created.\footnote{Because of this, we say that {\tt Circle} is
+\emph{immutable}.}
+
+The file {\tt TestCircle.java} contains a ConsoleProgram which can be used to
+test your circle implementation to see if it is working correctly. You can feel
+free to examine or modify this code.
+\subsubsection*{Problem 2}
+In lecture, we saw how to create a {\tt MovingBall} class. Along similar lines,
+you should now fill in code in {\tt BouncingBall.java} to create a new class
+called {\tt BouncingBall} which represents a GOval bouncing around the screen.
+You must implement the following constructor and method:
+\begin{itemize}
+  \item A constructor which takes three arguments: a GOval which is to bounce
+    around the screen, and two doubles representing the initial x- and
+    y-velocity.
+  \item A method {\tt move()}, which takes no arguments. When this method is
+    called, the GOval should be moved on the screen according to the current
+    velocity. If this would cause the GOval to contact any side of the window,
+    then the GOval should ``bounce'' off that side, reversing the x-velocity if
+    on the left- or right-edge, and reversing the y-velocity if on the top- or
+    bottom-edge.
+\end{itemize}
+Hence, when the {\tt move()} method is called repeatedly, the given GOval
+should appear to travel around the window, bouncing off sides when it makes
+contact.
+
+Once you have defined your class, you should write a GraphicsProgram in {\tt
+BouncingBallsProgram.java} which displays several balls of different colors
+bouncing around the screen. You may want to randomize their start locations
+and/or their initial velocities.
+\subsubsection*{Challenge problem}
+Extend the bouncing balls program from the previous part in the following ways:
+\begin{itemize}
+  \item Add an additional method to {\tt BouncingBall} class called {\tt
+    isContacting()}, which takes in another {\tt BouncingBall} as an argument
+    and returns a boolean which is true if the two circles are overlapping, and
+    false if not.
+  \item Using this new method, modify your {\tt BouncingBallsProgram} so that
+    something happens if two balls run into each other. This could be as simple
+    as changing their colors, or you could have the balls bounce off of each
+    other in opposite directions.
+\end{itemize}
+A hint: two circles are overlapping if the distance between their centers is
+less than the sums of their radii. The distance between two points $(x_1, y_1)$
+and $(x_2, y_2)$, according to the Pythagorean theorem, is $\sqrt{(x_2 - x_1)^2
++ (y_2 - y_1)^2}$.
+
+\end{document}
