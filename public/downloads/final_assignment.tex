@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=C, tabsize=4, frame=single}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\begin{center}
+\section*{Final Robotics Project}
+\end{center}
+It's time to make an awesome robot. With your group, make use of everything
+you've learned to make a robot to perform some task. You are given significant
+creative freedom as to what the robot should do, so think of something
+interesting. The only requirement is that the robot must make use of both motors
+and sensors. Other than that, you should try to come up with something cool.
+Here are some ideas for what you can do:
+\begin{itemize}
+  \item Make a robot which has an arm! You can use the arm to pick up objects,
+    or push them around.
+  \item You can put a launcher on a robot to shoot balls forward. You can detect
+    nearby targets and then shoot balls at them.
+  \item If you have a light sensor facing straight down at the ground, and then
+    put strips of black electrical tape on the ground, then the robot can detect
+    when it is passing over tape. There are various things you can do with this.
+    For example, you could use the strips of tape to make a maze on the ground,
+    and then the robot can try to solve the maze without driving over any of the
+    ``walls.''
+  \item Using the ultrasonic sensor and possibly other sensors, make a robot
+    which navigates around a room full of obstacles. You could make the
+    robot try to move forward in a room as far as possible, moving around
+    anything that gets in its path.
+  \item Using the light sensor, make a robot which tries to move towards light.
+    The robot will need to look around to determine which direction is
+    brightest, and then move in that direction. You could then shine a
+    flashlight to tell the robot where to go.
+  \item The robot doesn't actually have to move around a room! Another option is
+    a stationary robot that uses multiple motors to have precise control over an
+    arm. You could make a robot which grips a dry-erase marker and uses it to
+    write on a paper.
+\end{itemize}
+Your group will present your robot to the class on Friday, the last day of
+class. Be excited!
+\end{document}
