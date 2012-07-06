@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+\usepackage[noBBpl]{mathpazo}
+
+%\documentclass[12pt]{article}
+%\usepackage{mathptmx}
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\input xy
+\xyoption{all}
+
+\usepackage[noend]{algorithmic}
+\usepackage{listings}
+\lstset{language=Java, tabsize=4}
+
+%\renewcommand{\labelenumi}{\textbf{(\arabic{enumi})}}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{ex}{Example}
+\newtheorem*{exes}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+\newtheorem*{case}{Case}
+\newtheorem*{conclusion}{Conclusion}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\paren}[1]{{\left({#1}\right)}}
+\newcommand{\abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\norm}[1]{{\left\lVert{#1}\right\rVert}}
+\newcommand{\inner}[1]{{\left\langle{#1}\right\rangle}}
+\newcommand{\floor}[1]{{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\ceil}[1]{{\left\lceil{#1}\right\rceil}}
+\newcommand{\pd}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braaket}[3]{\bra{#1}#2\ket{#3}}
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+\newcommand{\newproblem}[1]{\section*{\textsf{#1}\smallskip\hrule}}
+
+\begin{document}
+\begin{center}
+\section*{How to create a standalone program}
+\end{center}
+\section*{Introduction}
+Eclipse can produce standalone Java programs called JAR files (for Java
+ARchive). As long as your computer has a Java Runtine Environment (JRE)
+installed, you should be able to run a .jar as a program by double-clicking it.
+Normally, this is very easy to do with a few clicks, but because we're using the
+non-standard ACM libraries and the Stanford plugin in the ConsolePrograms and
+GraphicsPrograms we have been writing throughout the course, we have to go
+through a fairly long process instead. Here are the steps required to produce a
+standalone program.
+\section{Adding a {\tt main()} method}
+You may have wondered why we needed a {\tt main()} method in the LeJOS programs
+but not in the ConsolePrograms and GraphicsPrograms. This is because the
+Stanford Eclipse plugin is automatically adding a {\tt main()} method. Before we
+can export to a JAR, we need to add this method back in. That is, inside your
+main class (the one that extends ConsoleProgram or GraphicsProgram), you shoudld
+add the code:
+\begin{lstlisting}
+public static void main(String[] args) {
+   new MyClass().start(args);
+}
+\end{lstlisting}
+In this code snippet, you should replace ``MyClass'' with whatever the name of
+your class is. So for instance if at the top of your file you have the line
+\begin{lstlisting}
+public class RandomCircles extends GraphicsProgram {
+\end{lstlisting}
+then you should write RandomCircles in place of MyClass in the above code. 
+\section{Using Eclipse's Export Wizard}
+The next series of steps will be to use Eclipse's Export Wizard feature to
+produce a JAR and a manifest file. We will later need to modify the manifest
+file to specify that the ACM libraries should be included, but first perform the
+following steps:
+\begin{enumerate}
+  \item Select the project you want to export in the left-hand pane (the
+    ``Package Explorer''). At the top of the screen, go to the {\bf File} menu
+    and select {\bf Export}. This should make an export window appear in the
+    middle of the screen.
+  \item On the ``choose export destination'' screen, select the {\bf Java}
+    folder, and then select the option {\bf JAR file}. Click the {\bf Next >}
+    button.
+  \item On the ``JAR File Specification'' screen, check the box next to the name
+    of your project in the left-hand box, and then select the location you want
+    the JAR file saved to in the box labeled ``Select the export destination.''
+    Then click {\bf Next >}.
+  \item The next screen is ``JAR Packaging Options.'' This screen is not
+    important for us, and you can simply click {\bf Next >} without changing
+    anything.
+  \item The next screen is ``JAR Manifest Specification,'' and requires several
+    steps.
+    \begin{itemize}
+      \item First, near the bottom of the window, select the main class using
+        the {\bf Browse} button.  The main class is the one to which we earlier
+        added the {\tt main()} method in the first step above.
+      \item Then click the radio button labelled ``Generate the manifest file.''
+      \item Then check the box for ``Save the manifest in the workspace.''
+      \item Then click {\bf Browse} next to the box for ``Manifest file,''
+        navigate to the folder where your project exists, and enter ``manifest''
+        as the file name. If you do this correctly, the box will likely be
+        filled with something like ``/ProjectName/manifest''.
+      \item Finally, click {\bf Next >}.
+    \end{itemize}
+\end{itemize}
+After all of these steps, you should see the manifest file show up in the
+package explorer under the current project.
+\section{Editing the manifest file}
+We need to edit the manifest file that was just created to tell it to use the
+ACM libraries.
+\end{document}
