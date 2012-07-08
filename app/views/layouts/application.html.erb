@@ -10,7 +10,7 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <div class="<%= (defined? @fluid) ? 'container-fluid' : 'containter' %>">
+  <div class="<%= (defined? @fluid) ? 'container-fluid' : 'container' %>">
     <%= yield %>
     <%= render 'layouts/footer' %>
   </div>
