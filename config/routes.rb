@@ -2,6 +2,7 @@ JavaAndRobotics::Application.routes.draw do
   root to: 'static_pages#home'
   match '/assignments', to: 'static_pages#assignments'
   match '/resources', to: 'static_pages#resources'
+  match '/circlerunner', to: 'static_pages#circlerunner'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

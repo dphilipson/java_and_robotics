@@ -16,4 +16,8 @@ class StaticPagesController < ApplicationController
 
   def resources
   end
+
+  def circlerunner
+    @fluid = true
+  end
 end
