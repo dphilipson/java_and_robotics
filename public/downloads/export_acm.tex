@@ -118,14 +118,14 @@ following steps:
     and select {\bf Export}. This should make an export window appear in the
     middle of the screen.
   \item On the ``choose export destination'' screen, select the {\bf Java}
-    folder, and then select the option {\bf JAR file}. Click the {\bf Next >}
+    folder, and then select the option {\bf JAR file}. Click the {\bf Next}
     button.
   \item On the ``JAR File Specification'' screen, check the box next to the name
     of your project in the left-hand box, and then select the location you want
     the JAR file saved to in the box labeled ``Select the export destination.''
-    Then click {\bf Next >}.
+    Then click {\bf Next}.
   \item The next screen is ``JAR Packaging Options.'' This screen is not
-    important for us, and you can simply click {\bf Next >} without changing
+    important for us, and you can simply click {\bf Next} without changing
     anything.
   \item The next screen is ``JAR Manifest Specification,'' and requires several
     steps.
@@ -139,12 +139,45 @@ following steps:
         navigate to the folder where your project exists, and enter ``manifest''
         as the file name. If you do this correctly, the box will likely be
         filled with something like ``/ProjectName/manifest''.
-      \item Finally, click {\bf Next >}.
+      \item Finally, click {\bf Next}.
     \end{itemize}
-\end{itemize}
+\end{enumerate}
 After all of these steps, you should see the manifest file show up in the
 package explorer under the current project.
 \section{Editing the manifest file}
 We need to edit the manifest file that was just created to tell it to use the
-ACM libraries.
+ACM libraries. Open up the manifest file which should have just appeared in your
+project folder, and add the line 
+\begin{quote}
+  Class-Path: acm.jar
+\end{quote}
+After doing so, the manifest file should appear something like
+\begin{quote}
+  Manifest-Version: 1.0 \\
+  Main-Class: MyClass \\
+  Class-Path: acm.jar
+\end{quote}
+Make sure you save the manifest file after changing it.
+\section{Export Wizard again}
+Now repeat the process described in the secion titled ``Using Eclipse's Export
+Wizard'' up until just before step 5. This time, on the screen labelled ``JAR
+Manifest Specification,'' you should check the radio button for ``Use existing
+manifest from workspace,'' and use the {\bf Browse} button to select the
+manifest file you just created.
+
+Click {\bf Finish}. If Eclipse asks you if you want to overwrite the old .jar
+file, saw yes. We're almost there!
+\section{Distributing the .jar file}
+Now you have a .jar file containing your code, but you can't just send it to
+your friends because they won't have the ACM library. To run your program, you
+will need to have your .jar plus {\tt acm.jar} in the same directory, and then
+you can just double-click on your .jar to start your application.
+
+Note that if your application requires any auxiliary files, such as images, you
+will also need to put them in the same directory with your .jar and {\tt
+acm.jar}.
+
+If you want to send your application to friends, the easiest way is probably to
+put all the required files together into a folder, and then compress that folder
+into a .zip and send it.
 \end{document}

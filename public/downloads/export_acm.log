@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.9)  6 JUL 2012 02:05
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.9)  10 JUL 2012 13:05
 entering extended mode
  %&-line parsing enabled.
 **export_acm.tex
@@ -365,24 +365,24 @@ LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 100.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./export_acm.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./export_acm.aux) ) 
 Here is how much of TeX's memory you used:
- 6941 strings out of 493848
- 93664 string characters out of 1152824
- 241474 words of memory out of 3000000
- 10120 multiletter control sequences out of 15000+50000
- 10085 words of font info for 44 fonts, out of 3000000 for 9000
+ 6975 strings out of 493848
+ 93957 string characters out of 1152824
+ 243474 words of memory out of 3000000
+ 10121 multiletter control sequences out of 15000+50000
+ 11724 words of font info for 66 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  30i,4n,40p,226b,1163s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/
-share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></
-usr/share/texmf-texlive/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on export_acm.pdf (1 page, 61814 bytes).
+{/
+usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pf
+b></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplr8a.pfb>
+Output written on export_acm.pdf (2 pages, 71933 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
+ 30 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6657 words of extra memory for PDF output out of 10000 (max. 10000000)
 
